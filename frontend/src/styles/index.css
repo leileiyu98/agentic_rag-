@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  body {
+    @apply bg-apple-bg text-apple-text antialiased;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-apple-blue text-white px-4 py-2 rounded-apple font-medium 
+           hover:bg-blue-600 transition-colors duration-200 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-apple-gray text-apple-text px-4 py-2 rounded-apple font-medium 
+           hover:bg-gray-200 transition-colors duration-200 
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .card {
+    @apply bg-apple-surface rounded-apple-lg border border-apple-border p-4 shadow-apple;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 bg-apple-surface border border-apple-border rounded-apple 
+           focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent
+           placeholder:text-apple-text-secondary;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-apple cursor-pointer 
+           transition-all duration-200 hover:bg-apple-gray;
+  }
+  
+  .sidebar-item-active {
+    @apply bg-apple-blue-light text-apple-blue border border-apple-blue;
+  }
+  
+  .message-bubble-user {
+    @apply bg-apple-blue text-white rounded-apple-lg rounded-tr-sm px-4 py-3 max-w-[80%];
+  }
+  
+  .message-bubble-assistant {
+    @apply bg-apple-gray text-apple-text rounded-apple-lg rounded-tl-sm px-4 py-3 max-w-[80%];
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D1D6;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8E8E93;
+}

@@ -1,0 +1,75 @@
+[project]
+name = "rag-agent"
+version = "1.0.0"
+description = "基于 RAG 技术的智能知识库助手"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    # 基础依赖
+    "langchain>=0.1.0",
+    "langchain-openai>=0.0.5",
+    "langchain-community>=0.0.20",
+    "langgraph>=0.0.40",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    
+    # 向量数据库 - 2.4.0+ 支持稀疏向量
+    "pymilvus>=2.4.0",
+    
+    # 稀疏检索 - BM25
+    "bm25s>=0.1.0",
+    "PyStemmer>=2.2.0",
+    "scipy>=1.10.0",
+    
+    # 缓存
+    "redis>=5.0.0",
+    
+    # 工具
+    "numpy>=1.24.0",
+    "tiktoken>=0.5.0",
+    
+    # 文档处理
+    "pypdf>=3.17.0",
+    "python-docx>=1.1.0",
+    "unstructured>=0.11.0",
+    "markdown>=3.5.0",
+    
+    # 文本分块
+    "langchain-text-splitters>=0.0.1",
+    
+    # Web 框架
+    "fastapi>=0.104.0",
+    "uvicorn>=0.24.0",
+    "python-multipart>=0.0.6",
+    
+    # 数据库
+    "psycopg2-binary>=2.9.0",
+    "sqlalchemy>=2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[tool.uv]
+python-downloads = "automatic"
+
+[tool.black]
+line-length = 100
+target-version = ['py312']
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "I", "N", "W"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
